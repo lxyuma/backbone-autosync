@@ -1,0 +1,39 @@
+{
+  "name": "backbone-autosync",
+  "description": "The best project ever.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/ryuma/backbone-autosync",
+  "author": {
+    "name": "ryuma.tsukano",
+    "email": "lyumalyuma@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ryuma/backbone-autosync.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ryuma/backbone-autosync/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ryuma/backbone-autosync/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-qunit": "0.1.1rc6",
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.7.2"
+  },
+  "keywords": [
+    "backbone",
+    "plugin"
+  ]
+}
