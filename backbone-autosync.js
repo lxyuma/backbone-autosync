@@ -10,21 +10,16 @@
       if(typeof intervalMilliSec == 'undefined')
         intervalMilliSec = 1000;
 
-      nowSyncLock = false;
-      setInterval(function() {
-        if (this.hasChanged() && nowSyncLock == false) {
-          nowSyncLock = true;
+      this.nowSyncLock = false;
+      setInterval(_.bind(function() {
+        if (this.hasChanged() && this.nowSyncLock == false) {
+          this.nowSyncLock = true;
           this.save({}, {
-            success: function(){ nowSyncLock = false }, //must be this bindings (error too)
-            error  : function(){ nowSyncLock = false }
+            success: _.bind(function(){ this.nowSyncLock = false}, this),
+            error  : _.bind(function(){ this.nowSyncLock = false}, this)
           });
         }
-      }, intervalMilliSec);
+      }, this), intervalMilliSec);
     }
   });
-
-  //var startSync = function(){
-  //  setInterval(
-  //};
-
 }).call(this, Backbone);

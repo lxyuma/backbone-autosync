@@ -1,15 +1,18 @@
 $(document).ready(function() {
 
-  module('Backbone.Autosync');
+  module('Backbone.Autosync');
 
-test('set', function() {
-  var MyModel = Backbone.Model.extend({});
-  var myInstance = new MyModel({title: "first"});
+asyncTest('set', function() {
+  var MyModel = Backbone.Model.extend({urlRoot: "faked"});
+  this.myInstance = new MyModel({title: "first"});
 
-  myInstance.autoSave();
-  myInstance.set({title: "changed"});
+  this.myInstance.autoSave();
+  this.myInstance.set({title: "changed"});
 
-  deepEqual(true, true); //temp test(=> will rewrite mocha test
+  setTimeout(_.bind(function() {
+    deepEqual(this.myInstance.nowSyncLock, false);
+    start();
+  }, this), 2000);
 });
 
 
