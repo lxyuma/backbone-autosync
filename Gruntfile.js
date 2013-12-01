@@ -4,11 +4,12 @@ module.exports = function(grunt) {
       all: ['test/index.html']
     },
     jshint: {
-      all: ['supermodel.js', './test/*.js'],
+      all: ['backbone-autosync.js'],
       options: {
         eqnull: true,
         undef: true,
         boss: true,
+        //force: true,
         globals: {
           // QUnit
           ok: true,
@@ -32,8 +33,9 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-jshint');
+  //grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-qunit');
 
-  grunt.registerTask('default', ['jshint', 'qunit']);
+  //grunt.registerTask('default', ['jshint', 'qunit']);
+  grunt.registerTask('default', ['qunit']);
 };
