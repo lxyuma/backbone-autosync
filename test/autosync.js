@@ -9,8 +9,11 @@ asyncTest('set', function() {
   this.myInstance.autoSave();
   this.myInstance.set({title: "changed"});
 
+  this.spySave = sinon.spy(this.myInstance, "save");
+
   setTimeout(_.bind(function() {
     deepEqual(this.myInstance.nowSyncLock, false);
+    ok(this.spySave.calledOnce);
     start();
   }, this), 2000);
 });
