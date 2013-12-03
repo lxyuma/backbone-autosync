@@ -11,7 +11,7 @@
         intervalMilliSec = 1000;
 
       this.nowSyncLock = false;
-      setInterval(_.bind(function() {
+      this.saveInterval = setInterval(_.bind(function() {
         if (this.hasChanged() && this.nowSyncLock == false) {
           this.nowSyncLock = true;
           this.save({}, {
@@ -20,6 +20,12 @@
           });
         }
       }, this), intervalMilliSec);
+    },
+
+    stopAutoSave: function(){
+      if (typeof this.saveInterval != 'undefined') {
+        clearInterval(this.saveInterval);
+      }
     }
   });
 }).call(this, Backbone);
