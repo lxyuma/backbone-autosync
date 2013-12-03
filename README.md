@@ -2,9 +2,9 @@
 
 Backbone.Autosync is Backbone plugin for saving model automatically.
 
-You may be afraid of polling save. But, dont be afraid.
+You may be afraid of polling save. But, don't be afraid.
 
-Backbone.autosync is very ```lazy polling```.(not strictly realtime sync)
+Backbone.autosync is very ```lazy polling```.(so, not strictly realtime sync)
 
 And it is suitable for saving draft, or setting without ok/cancel. (like mac)
 
@@ -37,4 +37,8 @@ var yourView = Backbone.View.extends({
 
 # recommend
 
-- stickit
+I strongly recommend you to use with Backbone.stickit.
+
+It provides data bindings in Backbone.So, you don't need to set form data.
+
+
