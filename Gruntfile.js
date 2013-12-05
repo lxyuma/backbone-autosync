@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     qunit: {
-      all: ['test/index.html']
+      all: ['test/*.html']
     },
     jshint: {
       all: ['backbone-autosync.js'],
