@@ -8,7 +8,7 @@ $(document).ready(function() {
 
     this.myInstance = new MyModel({title: "first"});
     this.spySave = sinon.spy(this.myInstance, "save");
-    this.myInstance.autoSave(100);
+    this.myInstance.autoSave({interval: 100, debugMode: true});
     this.myInstance.set({title: "changed"});
 
     setTimeout(_.bind(function() {
@@ -21,7 +21,7 @@ $(document).ready(function() {
   asyncTest('stopAutoSave can stop interval saving', _.bind(function() {
     this.myInstance = new MyModel({title: "first"});
     this.spySave = sinon.spy(this.myInstance, "save");
-    this.myInstance.autoSave(100);
+    this.myInstance.autoSave({interval: 100});
     this.myInstance.stopAutoSave();
 
     this.myInstance.set({title: "changed"});

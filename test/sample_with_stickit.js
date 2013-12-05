@@ -22,7 +22,7 @@ $(document).ready(function() {
     this.myView.stickit();
 
     this.spySave = sinon.spy(this.myModel, "save");
-    this.myModel.autoSave(100);
+    this.myModel.autoSave({interval:100});
     this.myView.$("#title").val('changed!');
     this.myView.$("#title").trigger('change');
 
@@ -31,7 +31,7 @@ $(document).ready(function() {
       deepEqual(this.myModel.nowSyncLock, false);
       ok(this.spySave.calledOnce);
       start();
-    }, this), 1000);
+    }, this), 500);
   }, this));
 
 });

@@ -40,16 +40,24 @@ var yourView = Backbone.View.extends({
 });
 ```
 
+## options
+
+You can add some options in arguments like this ``` yourModel.autoSave({someOption: true})```
+
+- ```interval```
+  - ex) 1000
+  - checking milli seconds interval .
+
+- ```debugMode```
+  - true / false
+  - output status log. If you face to unexpected error, try to it.
+
 # recommend
 
 I strongly recommend you to use with Backbone.stickit.
 
 It provides data bindings in Backbone.So, you don't need to set form data.
-Caution: please use with ```updateView:false``` like that.
 
-```
-
-```
-
-Because, if you don't use this setting, it may be occured unexpected results.(for example, autosync write automatticaly updated_at
+- Caution: please use with ```updateView:false``` .
+  - Because, if you don't use this setting, it may be occured unexpected results.(for example, autosync write automatticaly updated_at
 

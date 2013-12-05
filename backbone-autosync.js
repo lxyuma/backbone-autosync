@@ -6,20 +6,26 @@
 (function(Backbone) {
 
   _.extend(Backbone.Model.prototype, {
-    autoSave: function(intervalMilliSec) {
-      if(typeof intervalMilliSec == 'undefined')
-        intervalMilliSec = 1000;
+    autoSave: function(options) {
+      var interval  = typeof options.interval === 'undefined' ? 1000 : options.interval;
+      var debugMode = typeof options.debugMode !== 'undefined' && options.debugMode === true ? true : false
+
+      showLog("start test", debugMode);
 
       this.nowSyncLock = false;
       this.saveInterval = setInterval(_.bind(function() {
+        showLog("now interval checking", debugMode);
+
         if (this.hasChanged() && this.nowSyncLock === false) {
           this.nowSyncLock = true;
           this.save({}, {
             success: _.bind(function(){ this.nowSyncLock = false;}, this),
             error  : _.bind(function(){ this.nowSyncLock = false;}, this)
           });
+          showLog("now saving", debugMode);
+
         }
-      }, this), intervalMilliSec);
+      }, this), interval);
     },
 
     stopAutoSave: function(){
@@ -28,4 +34,10 @@
       }
     }
   });
+  var showLog = function(message, debugMode){
+    if(typeof debugMode !== 'undefined' && debugMode === true){
+      console.log('Backbone.autosync:DEBUG_MODE:' + message);
+    }
+  };
+
 }).call(this, Backbone);
