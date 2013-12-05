@@ -12,11 +12,11 @@
 
       this.nowSyncLock = false;
       this.saveInterval = setInterval(_.bind(function() {
-        if (this.hasChanged() && this.nowSyncLock == false) {
+        if (this.hasChanged() && this.nowSyncLock === false) {
           this.nowSyncLock = true;
           this.save({}, {
-            success: _.bind(function(){ this.nowSyncLock = false}, this),
-            error  : _.bind(function(){ this.nowSyncLock = false}, this)
+            success: _.bind(function(){ this.nowSyncLock = false;}, this),
+            error  : _.bind(function(){ this.nowSyncLock = false;}, this)
           });
         }
       }, this), intervalMilliSec);

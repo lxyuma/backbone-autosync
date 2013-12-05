@@ -11,7 +11,7 @@ And it is suitable for saving draft, or setting without ok/cancel. (like mac)
 # Installation
 
 ```
-bower install backbone-autosync
+git clone
 ```
 
 # usage
