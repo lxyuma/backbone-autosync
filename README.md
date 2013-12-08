@@ -40,24 +40,41 @@ var yourView = Backbone.View.extends({
 });
 ```
 
+# lazy polling
+
+Basically, save every seconds. (it can be configured)
+
+But, it does not save all times.
+
+In next conditions, it does not save.
+
+- fetching(has started HTTP Request, and not get response.)
+- hasChanged == false
+
 ## options
 
-You can add some options in arguments like this ``` yourModel.autoSave({someOption: true})```
+You can add some options in arguments like this ``` yourModel.autoSave({someOption: value})```
 
 - ```interval```
-  - ex) 1000
-  - checking milli seconds interval .
+  - checking interval(milli seconds).
+  - default => 1000
+  - ex) 
+    - ``` autoSave({interval: 5000}) // => it means auto save 5 seconds.  ```
 
 - ```debugMode```
-  - true / false
   - output status log. If you face to unexpected error, try to it.
+  - default => false
+  - ex)
+    - ``` autoSave({debugMode: true}); ```
 
 # recommend
 
 I strongly recommend you to use with Backbone.stickit.
 
-It provides data bindings in Backbone.So, you don't need to set form data.
+It provides data bindings in Backbone.
+
+So, you don't need to set form data.
 
 - Caution: please use with ```updateView:false``` .
-  - Because, if you don't use this setting, it may be occured unexpected results.(for example, autosync write automatticaly updated_at
+  - Because, if you don't use this setting, it may be occured unexpected results.(for example, autosync write automatticaly updated_at)
 
