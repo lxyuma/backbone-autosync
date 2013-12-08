@@ -2,11 +2,19 @@
 
 Backbone.Autosync is Backbone plugin for saving model automatically.
 
-You may be afraid of polling save. But, don't be afraid.
+You may be afraid of stress of polling save.
 
-Backbone.autosync is very ```lazy polling```.(so, not strictly realtime sync)
+But, don't be afraid.
 
-And it is suitable for saving draft, or setting without ok/cancel. (like mac)
+Backbone.autosync is very ```lazy polling```. (So, not strictly realtime sync)
+
+## usecase
+
+It is suitable for the next cases.
+
+- saving draft
+- setting without ok/cancel. (like Mac)
+- document auto save (like GoogleDoc)
 
 # Installation
 
