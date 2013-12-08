@@ -54,13 +54,11 @@ In next conditions, it does not save.
 ## options
 
 You can add some options in arguments like this ``` yourModel.autoSave({someOption: value})```
-
 - ```interval```
   - checking interval(milli seconds).
   - default => 1000
   - ex) 
     - ``` autoSave({interval: 5000}) // => it means auto save 5 seconds.  ```
-
 - ```debugMode```
   - output status log. If you face to unexpected error, try to it.
   - default => false
