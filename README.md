@@ -84,3 +84,9 @@ So, you don't need to set form data.
 - Caution: please use with ```updateView:false``` .
   - Because, if you don't use this setting, it may be occured unexpected results.(for example, autosync write automatticaly updated_at)
 
+# todo
+
+will add these functions.
+
+- localstorage:true
+- stop interval if invalid data(and resume if changed)
